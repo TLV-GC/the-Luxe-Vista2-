@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TheLuxeVista — Style in Luxury. Walk in Elegance.</title>
+<meta name="description" content="Premium men's fashion — Elegant Suits, Premium Belts, Finely Crafted Shoes. Curated for the modern African gentleman."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --white:#ffffff;--off:#f7f8fc;--blue:#2b4a7a;--blm:#3a5f9a;--bll:#4e7abf;--blp:#e8eef8;
+  --sil:#1e2535;--sim:#2d3548;--silt:#8898b0;--silp:#c8d3e8;
+  --text:#1a1e2e;--textm:#4a5268;--textl:#8898b0;
+  --bdr:rgba(43,74,122,.13);--bdrk:rgba(30,37,53,.18);--green:#25d366;
+  --serif:'Cormorant Garamond',serif;--cur:'Dancing Script',cursive;--sans:'Montserrat',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);--nav:72px;--max:1300px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden;cursor:none;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+a{color:inherit;text-decoration:none;}ul{list-style:none;}
+button,input,select,textarea{font-family:var(--sans);background:none;border:none;outline:none;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--off);}::-webkit-scrollbar-thumb{background:var(--blue);}
+
+/* CURSOR */
+#cD{position:fixed;top:0;left:0;z-index:9999;width:9px;height:9px;border-radius:50%;background:var(--blue);pointer-events:none;transform:translate(-50%,-50%);}
+#cR{position:fixed;top:0;left:0;z-index:9998;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(43,74,122,.4);pointer-events:none;transform:translate(-50%,-50%);transition:width .22s,height .22s,border-color .22s;}
+#cR.hov{width:52px;height:52px;border-color:var(--blue);}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:800;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 4rem;transition:background .35s,box-shadow .35s;}
+#nav.sc{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--bdr),0 4px 24px rgba(43,74,122,.07);}
+.nl{display:flex;gap:2.2rem;}
+.nl a{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sil);transition:color .2s;position:relative;}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--blue);transition:width .3s;}
+.nl a:hover,.nl a.on{color:var(--blue);}
+.nl a:hover::after,.nl a.on::after{width:100%;}
+.nr{display:flex;align-items:center;gap:1.6rem;}
+.ncta{font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);background:var(--blue);padding:.6rem 1.6rem;cursor:none;transition:background .2s,transform .15s;}
+.ncta:hover{background:var(--blm);transform:translateY(-1px);}
+.burg{display:none;flex-direction:column;gap:5px;cursor:none;}
+.burg span{display:block;width:22px;height:1.5px;background:var(--sil);transition:.3s;}
+.mm{display:none;position:fixed;inset:0;z-index:700;background:var(--sil);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;transform:translateY(-100%);transition:transform .5s var(--ease);}
+.mm.open{transform:translateY(0);}
+.mm a{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--white);letter-spacing:.06em;transition:color .2s;}
+.mm a:hover{color:var(--silt);}
+
+/* CART */
+.co{position:fixed;inset:0;z-index:900;background:rgba(30,37,53,.5);opacity:0;pointer-events:none;transition:opacity .3s;}
+.co.open{opacity:1;pointer-events:all;}
+.cd{position:fixed;top:0;right:0;bottom:0;z-index:901;width:400px;max-width:95vw;background:var(--white);box-shadow:-8px 0 40px rgba(30,37,53,.2);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease);}
+.cd.open{transform:translateX(0);}
+.cdh{padding:1.8rem 2rem;border-bottom:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+.cdh h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--sil);}
+.cdc{font-size:1.4rem;color:var(--textl);cursor:none;transition:color .2s;background:none;}
+.cdc:hover{color:var(--sil);}
+.ci{flex:1;overflow-y:auto;padding:1.5rem 2rem;}
+.ce{text-align:center;padding:3rem 0;color:var(--textl);font-size:.82rem;}
+.cit{display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--bdr);}
+.cin{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--sil);margin-bottom:.25rem;}
+.cim{font-size:.68rem;color:var(--textl);margin-bottom:.5rem;}
+.crm{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);cursor:none;background:none;}
+.cf{padding:1.5rem 2rem;border-top:1.5px solid var(--bdr);}
+.ctot{display:flex;justify-content:space-between;margin-bottom:1.2rem;}
+.ctot span{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--textl);}
+.ctot strong{font-family:var(--serif);font-size:1.2rem;color:var(--sil);font-weight:400;}
+.cc{display:none;position:absolute;top:-6px;right:-6px;width:17px;height:17px;border-radius:50%;background:var(--blue);color:var(--white);font-size:.55rem;align-items:center;justify-content:center;}
+.cc.show{display:flex;}
+.ciw{position:relative;cursor:none;}
+
+/* BTNS */
+.btn{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.9rem 2.4rem;cursor:none;transition:all .22s var(--ease);font-family:var(--sans);}
+.bb{background:var(--blue);color:var(--white);}
+.bb:hover{background:var(--blm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(43,74,122,.3);}
+.bow{border:1.5px solid rgba(200,211,232,.35);color:var(--white);}
+.bow:hover{border-color:var(--silp);background:rgba(200,211,232,.08);}
+.bob{border:1.5px solid var(--bdrk);color:var(--blue);}
+.bob:hover{border-color:var(--blue);background:var(--blp);}
+.bs{background:var(--sil);color:var(--white);}
+.bs:hover{background:var(--sim);transform:translateY(-1px);}
+
+/* HERO */
+#hero{min-height:100vh;padding-top:var(--nav);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--sil) 0%,var(--sim) 55%,var(--blue) 100%);}
+.hiw{position:absolute;right:0;top:0;bottom:0;width:52%;overflow:hidden;}
+.hiw img{width:100%;height:100%;object-fit:cover;opacity:.38;transition:transform 10s var(--ease);}
+#hero:hover .hiw img{transform:scale(1.04);}
+.hig{position:absolute;inset:0;background:linear-gradient(to right,var(--sil) 0%,rgba(30,37,53,.7) 50%,transparent 100%);}
+.hgo{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,1) 0px,rgba(255,255,255,1) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(90deg,rgba(255,255,255,1) 0px,rgba(255,255,255,1) 1px,transparent 1px,transparent 60px);}
+.hc{position:relative;z-index:2;padding:5rem 4rem;max-width:680px;}
+.hey{display:inline-flex;align-items:center;gap:.8rem;font-size:.62rem;letter-spacing:.38em;text-transform:uppercase;color:var(--silt);margin-bottom:2rem;opacity:0;animation:fU .9s .2s forwards;}
+.hey::before{content:'';width:30px;height:1px;background:var(--silt);}
+.hh1{font-family:var(--serif);font-size:clamp(3.2rem,7vw,6.5rem);font-weight:300;line-height:1.0;color:var(--white);opacity:0;animation:fU 1.1s .4s forwards;}
+.hh1 em{font-style:italic;color:var(--silt);display:block;}
+.hs{margin-top:1.4rem;font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(200,211,232,.55);opacity:0;animation:fU .9s .8s forwards;}
+.hd{width:48px;height:1.5px;background:var(--silt);margin:2.2rem 0;opacity:0;animation:fU .7s 1s forwards;}
+.hb{display:flex;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fU .9s 1.2s forwards;}
+.hscr{position:absolute;bottom:2.5rem;left:4rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:fI .8s 2s forwards;}
+.hscr span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,211,232,.45);}
+.sl{width:40px;height:1px;background:rgba(200,211,232,.35);animation:sP 2s infinite;}
+
+/* MARQUEE */
+.mw{overflow:hidden;padding:.85rem 0;background:var(--blue);}
+.mt{display:flex;white-space:nowrap;animation:marq 28s linear infinite;}
+.mt span{font-family:var(--serif);font-size:.82rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:0 2.5rem;}
+.mt .bull{color:rgba(255,255,255,.35);font-size:.45rem;}
+
+/* SHARED */
+.sec{padding:7rem 4rem;}
+.wrap{max-width:var(--max);margin:0 auto;}
+.slbl{font-size:.62rem;letter-spacing:.38em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.9rem;}
+.slbl.lt{color:var(--silt);}
+.stit{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.1;color:var(--sil);}
+.stit em{font-style:italic;color:var(--blue);}
+.stit.lt{color:var(--white);}
+.stit.lt em{color:var(--silt);}
+.sln{width:44px;height:2px;background:var(--blue);margin:1.6rem 0;}
+.sln.sv{background:var(--silt);}
+.sbdy{font-size:.84rem;line-height:1.9;color:var(--textm);}
+.sbdy.lt{color:rgba(200,211,232,.6);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.rv.in{opacity:1;transform:translateY(0);}
+
+/* STORY */
+#story{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;}
+.sv2{position:relative;overflow:hidden;background:var(--sil);}
+.sv2 img{position:absolute;inset:0;opacity:.5;transition:transform 9s;}
+#story:hover .sv2 img{transform:scale(1.04);}
+.svg2{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,37,53,.95) 0%,rgba(30,37,53,.5) 55%,rgba(30,37,53,.2) 100%);}
+.smono{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:16rem;font-weight:300;line-height:1;color:rgba(255,255,255,.04);letter-spacing:-.04em;user-select:none;white-space:nowrap;}
+.sq{position:absolute;bottom:3.5rem;left:3.5rem;right:3.5rem;}
+.sq blockquote{font-family:var(--serif);font-size:1.55rem;font-style:italic;font-weight:300;color:var(--silp);line-height:1.55;}
+.sq cite{display:block;margin-top:.75rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silt);font-style:normal;}
+.stxt{padding:7rem 5.5rem;display:flex;flex-direction:column;justify-content:center;background:var(--off);}
+.sstats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;padding-top:2.2rem;border-top:1.5px solid var(--bdr);}
+.stn{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--blue);line-height:1;}
+.stl{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--textl);margin-top:.3rem;}
+
+/* CATALOGUE */
+.cath{margin-bottom:4rem;}
+.cathi{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;}
+.pcard{position:relative;overflow:hidden;background:var(--off);cursor:none;}
+.pcimg{aspect-ratio:2/3;overflow:hidden;position:relative;}
+.pcimg img{transition:transform .7s var(--ease);}
+.pcard:hover .pcimg img{transform:scale(1.06);}
+.pbadge{position:absolute;top:1.2rem;left:1.2rem;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;background:var(--blue);color:var(--white);padding:.3rem .8rem;z-index:2;}
+.pbadge.nw{background:var(--sil);}
+.pbdy{padding:1.6rem 1.8rem 2rem;border-top:1.5px solid var(--bdr);}
+.pnm{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--sil);margin-bottom:.4rem;}
+.psub{font-size:.72rem;color:var(--textl);margin-bottom:1.2rem;}
+.sels{display:flex;flex-direction:column;gap:.9rem;}
+.sellbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:.45rem;display:block;}
+.swatches{display:flex;gap:.5rem;flex-wrap:wrap;}
+.sw{width:24px;height:24px;border-radius:50%;cursor:none;border:2px solid transparent;transition:transform .2s,border-color .2s;position:relative;}
+.sw:hover{transform:scale(1.15);}
+.sw.sel{border-color:var(--blue);}
+.sw[title]::after{content:attr(title);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--sil);color:var(--white);font-size:.55rem;letter-spacing:.1em;white-space:nowrap;padding:.2rem .5rem;pointer-events:none;opacity:0;transition:opacity .2s;}
+.sw:hover::after{opacity:1;}
+.spills{display:flex;gap:.4rem;flex-wrap:wrap;}
+.sp{font-size:.62rem;letter-spacing:.1em;padding:.3rem .7rem;border:1.5px solid var(--bdrk);color:var(--textm);cursor:none;transition:all .2s;}
+.sp:hover{border-color:var(--blue);color:var(--blue);}
+.sp.sel{background:var(--blue);border-color:var(--blue);color:var(--white);}
+.qty{display:flex;align-items:center;gap:.7rem;}
+.qb{width:28px;height:28px;border:1.5px solid var(--bdrk);cursor:none;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--textm);transition:all .2s;}
+.qb:hover{border-color:var(--blue);color:var(--blue);}
+.qv{font-size:.82rem;min-width:20px;text-align:center;color:var(--sil);}
+.pcta{display:flex;gap:.6rem;margin-top:1.4rem;flex-wrap:wrap;}
+.abtn{flex:1;min-width:110px;padding:.75rem 1rem;background:var(--sil);color:var(--white);border:none;cursor:none;font-family:var(--sans);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;transition:background .2s,transform .15s;}
+.abtn:hover{background:var(--blue);transform:translateY(-1px);}
+.wbtn{padding:.75rem 1rem;border:1.5px solid rgba(37,211,102,.4);color:#25d366;cursor:none;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.4rem;transition:all .2s;}
+.wbtn:hover{background:rgba(37,211,102,.08);border-color:#25d366;}
+.tsel{width:100%;padding:.5rem .8rem;border:1.5px solid var(--bdrk);color:var(--text);font-family:var(--sans);font-size:.75rem;cursor:none;background:var(--white);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%232b4a7a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center;transition:border-color .2s;}
+.tsel:focus{border-color:var(--blue);}
+
+/* WHY */
+#why{background:var(--sil);}
+.wyi{display:grid;grid-template-columns:1fr 1.3fr;gap:7rem;align-items:start;max-width:var(--max);margin:0 auto;}
+.wif{display:flex;flex-direction:column;}
+.wi2{padding:1.7rem 0;border-bottom:1px solid rgba(200,211,232,.1);display:grid;grid-template-columns:32px 1fr;gap:1.3rem;align-items:start;}
+.wi2:first-child{border-top:1px solid rgba(200,211,232,.1);}
+.win{font-family:var(--serif);font-size:.95rem;color:var(--silt);padding-top:2px;transition:color .2s;}
+.wi2:hover .win{color:var(--silp);}
+.wit{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--silp);margin-bottom:.4rem;transition:color .2s;}
+.wi2:hover .wit{color:var(--white);}
+.wip{font-size:.78rem;line-height:1.75;color:rgba(200,211,232,.5);}
+
+/* PROCESS */
+#proc{background:var(--blp);}
+.prw{max-width:var(--max);margin:0 auto;}
+.prh{text-align:center;margin-bottom:5rem;}
+.prst{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.prs{padding:3rem 2.5rem;background:var(--white);position:relative;transition:box-shadow .3s;}
+.prs:hover{box-shadow:0 8px 32px rgba(43,74,122,.12);z-index:1;}
+.prn{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--blue);opacity:.12;line-height:1;margin-bottom:1.5rem;transition:opacity .3s;}
+.prs:hover .prn{opacity:.22;}
+.prt{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sil);margin-bottom:.65rem;}
+.prp{font-size:.78rem;line-height:1.75;color:var(--textm);}
+.prs::after{content:'→';position:absolute;right:1.5rem;bottom:1.5rem;font-size:1.2rem;color:var(--blue);opacity:0;transition:opacity .3s,transform .3s;}
+.prs:hover::after{opacity:.5;transform:translateX(4px);}
+
+/* TESTI */
+#testi{background:var(--sil);padding:6rem 4rem;}
+.ti{max-width:820px;margin:0 auto;text-align:center;}
+.tq{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,2rem);font-style:italic;font-weight:300;color:var(--white);line-height:1.6;position:relative;}
+.tq::before{content:'"';position:absolute;top:-2.5rem;left:50%;transform:translateX(-50%);font-size:7rem;color:rgba(200,211,232,.1);font-style:normal;line-height:1;}
+.tc{margin-top:1.6rem;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--silt);}
+.tds{display:flex;gap:.6rem;justify-content:center;margin-top:2rem;}
+.td{width:6px;height:6px;border-radius:50%;background:rgba(200,211,232,.25);cursor:none;transition:.2s;}
+.td.on{background:var(--silp);transform:scale(1.3);}
+
+/* CTA */
+#cta{background:linear-gradient(120deg,var(--blue) 0%,var(--blm) 50%,var(--sim) 100%);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden;}
+#cta::before{content:'';position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,1) 0,rgba(255,255,255,1) 1px,transparent 0,transparent 50%);background-size:28px 28px;}
+.ctag{font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(200,211,232,.7);display:block;margin-bottom:1rem;}
+.ch{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.1;}
+.ch em{font-style:italic;color:var(--silp);}
+.csub{font-size:.8rem;color:rgba(200,211,232,.55);margin-top:.9rem;}
+.cbs{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;}
+.wl{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.2rem;border:1.5px solid rgba(37,211,102,.5);color:#25d366;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:all .2s;}
+.wl:hover{background:rgba(37,211,102,.12);border-color:#25d366;}
+
+/* CONTACT */
+#contact{background:var(--off);}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;max-width:var(--max);margin:0 auto;}
+.fg{margin-bottom:1.6rem;}
+.fg label{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;}
+.fg input,.fg select,.fg textarea{width:100%;padding:.7rem 0;border:none;border-bottom:1.5px solid var(--bdrk);color:var(--text);font-size:.86rem;font-weight:300;background:transparent;cursor:none;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-bottom-color:var(--blue);}
+.fg textarea{height:90px;resize:none;}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%232b4a7a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .1rem center;}
+.fg select option{background:var(--white);}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.sbtn{width:100%;padding:1rem;background:var(--blue);color:var(--white);border:none;cursor:none;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;transition:background .2s,transform .15s;}
+.sbtn:hover{background:var(--blm);transform:translateY(-1px);}
+.cd2{display:flex;align-items:flex-start;gap:1.2rem;padding:1.6rem 0;border-bottom:1.5px solid var(--bdr);}
+.cd2:last-of-type{border-bottom:none;}
+.cicon{font-size:1.1rem;color:var(--blue);margin-top:2px;}
+.clbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+.cval{font-size:.88rem;color:var(--text);}
+.cval a{color:var(--sil);transition:color .2s;}
+.cval a:hover{color:var(--blue);}
+
+/* FOOTER */
+footer{background:var(--sil);padding:5.5rem 4rem 2.5rem;}
+.fg2{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
+.ftag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silt);margin-top:.3rem;margin-bottom:1.4rem;}
+.fab{font-size:.78rem;line-height:1.85;color:rgba(200,211,232,.38);}
+.fc h4{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silt);margin-bottom:1.4rem;}
+.fc li{margin-bottom:.65rem;}
+.fc a{font-size:.78rem;color:rgba(200,211,232,.42);transition:color .2s;}
+.fc a:hover{color:var(--white);}
+.fbot{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid rgba(200,211,232,.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.fcp{font-size:.68rem;color:rgba(200,211,232,.25);letter-spacing:.07em;}
+.fcp span{color:var(--silt);}
+.fleg{display:flex;gap:1.8rem;}
+.fleg a{font-size:.66rem;color:rgba(200,211,232,.25);transition:color .2s;}
+.fleg a:hover{color:var(--white);}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;z-index:9000;padding:.85rem 1.5rem;background:var(--sil);border-left:3px solid var(--blue);font-size:.76rem;color:var(--white);transform:translateX(160%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);max-width:280px;}
+.toast.show{transform:translateX(0);}
+
+@keyframes fU{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fI{from{opacity:0}to{opacity:1}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes sP{0%,100%{opacity:.3}50%{opacity:1}}
+
+@media(max-width:1100px){
+  .pgrid,.wyi{grid-template-columns:1fr 1fr;}
+  .wyi{gap:3.5rem;}
+  #story{grid-template-columns:1fr;}
+  .sv2{min-height:420px;}
+  .stxt{padding:5rem 3rem;}
+  .cgrid{grid-template-columns:1fr;gap:4rem;}
+  .fg2{grid-template-columns:1fr 1fr;gap:3rem;}
+  #nav{padding:0 2.5rem;}
+}
+@media(max-width:900px){
+  #nav{padding:0 2rem;}
+  .nl,.nr{display:none;}
+  .burg{display:flex;}
+  .mm{display:flex;}
+  .hc{padding:4rem 2rem 5rem;}
+  .hiw{display:none;}
+  .sec,.sec2{padding:5rem 2rem;}
+  #testi{padding:5rem 2rem;}
+  footer{padding:4.5rem 2rem 2rem;}
+  .prst{grid-template-columns:1fr 1fr;gap:2px;}
+}
+@media(max-width:600px){
+  .pgrid{grid-template-columns:1fr;}
+  .prst{grid-template-columns:1fr;}
+  .fg2{grid-template-columns:1fr;}
+  .fr{grid-template-columns:1fr;}
+  .cbs,.hb{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<div id="cD"></div>
+<div id="cR"></div>
+
+<!-- CART -->
+<div class="co" id="co" onclick="closeCart()"></div>
+<div class="cd" id="cd">
+  <div class="cdh">
+    <h3>Your Selection</h3>
+    <button class="cdc" onclick="closeCart()">✕</button>
+  </div>
+  <div class="ci" id="ci">
+    <div class="ce">Your selection is empty.<br>Browse our collections below.</div>
+  </div>
+  <div class="cf">
+    <div class="ctot"><span>Items Selected</span><strong id="cc2">0</strong></div>
+    <button class="btn bb" style="width:100%;padding:1rem" onclick="checkoutWA()">Request All via WhatsApp</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" style="display:inline-flex;align-items:center">
+    <svg width="210" height="40" viewBox="0 0 210 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="32" font-family="Montserrat,sans-serif" font-weight="700" font-size="28" fill="#1e2535">T</text>
+      <text x="20" y="32" font-family="Dancing Script,cursive" font-weight="500" font-size="21" fill="#2b4a7a">he</text>
+      <text x="50" y="32" font-family="Montserrat,sans-serif" font-weight="700" font-size="28" fill="#1e2535">L</text>
+      <text x="68" y="32" font-family="Dancing Script,cursive" font-weight="500" font-size="21" fill="#2b4a7a">uxe</text>
+      <text x="108" y="32" font-family="Montserrat,sans-serif" font-weight="700" font-size="28" fill="#1e2535">V</text>
+      <text x="128" y="32" font-family="Dancing Script,cursive" font-weight="500" font-size="21" fill="#2b4a7a">ista</text>
+      <line x1="0" y1="37" x2="176" y2="37" stroke="#2b4a7a" stroke-width="1" opacity="0.22"/>
+    </svg>
+  </a>
+  <ul class="nl">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#suits">Suits</a></li>
+    <li><a href="#belts">Belts</a></li>
+    <li><a href="#shoes">Shoes</a></li>
+    <li><a href="#story">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nr">
+    <div class="ciw" onclick="openCart()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e2535" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cc" id="cc">0</span>
+    </div>
+    <a href="#contact" class="btn bb ncta">Order Now</a>
+    <div class="burg" id="burg"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mm" id="mm">
+  <a href="#hero">Home</a><a href="#suits">Suits</a><a href="#belts">Belts</a>
+  <a href="#shoes">Shoes</a><a href="#story">About</a><a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hiw">
+    <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&q=80&fit=crop&crop=top" alt="Elegant men's fashion"/>
+    <div class="hig"></div>
+  </div>
+  <div class="hgo"></div>
+  <div class="hc">
+    <span class="hey">Premium Men's Fashion · Est. 2026</span>
+    <h1 class="hh1">Style in<br>Luxury.<em>Walk in Elegance.</em></h1>
+    <p class="hs">Suits &nbsp;·&nbsp; Belts &nbsp;·&nbsp; Shoes</p>
+    <div class="hd"></div>
+    <div class="hb">
+      <a href="#suits" class="btn bb">Explore Catalogue</a>
+      <a href="#contact" class="btn bow">Request a Quote</a>
+    </div>
+  </div>
+  <div class="hscr"><span>Scroll</span><div class="sl"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mw">
+  <div class="mt">
+    <span>Elegant Suits</span><span class="bull">◆</span><span>Premium Leather Belts</span><span class="bull">◆</span>
+    <span>Finely Crafted Shoes</span><span class="bull">◆</span><span>Style in Luxury</span><span class="bull">◆</span>
+    <span>Walk in Elegance</span><span class="bull">◆</span><span>The Modern Gentleman</span><span class="bull">◆</span>
+    <span>Akure · FUTA · Nationwide</span><span class="bull">◆</span>
+    <span>Elegant Suits</span><span class="bull">◆</span><span>Premium Leather Belts</span><span class="bull">◆</span>
+    <span>Finely Crafted Shoes</span><span class="bull">◆</span><span>Style in Luxury</span><span class="bull">◆</span>
+    <span>Walk in Elegance</span><span class="bull">◆</span><span>The Modern Gentleman</span><span class="bull">◆</span>
+    <span>Akure · FUTA · Nationwide</span><span class="bull">◆</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="sv2">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&fit=crop" alt="The Luxe Vista gentleman"/>
+    <div class="svg2"></div>
+    <div class="smono">LV</div>
+    <div class="sq">
+      <blockquote>"When a man dresses well,<br>he performs well."</blockquote>
+      <cite>— The Luxe Vista Philosophy</cite>
+    </div>
+  </div>
+  <div class="stxt">
+    <span class="slbl rv">Our Story</span>
+    <h2 class="stit rv">Redefining Elegance<br>for the <em>Modern Gentleman</em></h2>
+    <div class="sln rv"></div>
+    <p class="sbdy rv" style="margin-bottom:1rem">The Luxe Vista was founded to bridge a significant gap in the Nigerian menswear market — offering premium quality at accessible price points, with fashion tailored to African taste and build.</p>
+    <p class="sbdy rv">Operated under <strong style="color:var(--sil);font-weight:500">The Lord's Victory</strong>, we combine faith-driven values with business excellence. Every product reflects our commitment to quality, service, and trust.</p>
+    <div class="sstats rv">
+      <div><div class="stn">3</div><div class="stl">Core Product Lines</div></div>
+      <div><div class="stn">100%</div><div class="stl">Quality Curated</div></div>
+      <div><div class="stn">NG</div><div class="stl">Nationwide Delivery</div></div>
+      <div><div class="stn">∞</div><div class="stl">Style Possibilities</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SUITS ═══ -->
+<section id="suits" class="sec">
+<div class="wrap">
+  <div class="cath"><div class="cathi">
+    <div>
+      <span class="slbl rv">01 — Signature Collection</span>
+      <h2 class="stit rv">Elegant <em>Suits</em></h2>
+      <div class="sln rv"></div>
+      <p class="sbdy rv" style="max-width:520px">Premium fabrics, precise stitching, and refined cuts. Select your type, colour, and size directly below.</p>
+    </div>
+    <a href="#contact" class="btn bob rv">Request Bulk Quote</a>
+  </div></div>
+  <div class="pgrid">
+
+    <!-- SUIT 1 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge">Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b8a5b?w=600&q=80&fit=crop&crop=top" alt="Classic Black 3-Piece Suit" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Classic 3-Piece</div><div class="psub">Executive · Black Collection</div>
+        <div class="sels">
+          <div><span class="sellbl">Suit Type</span>
+            <select class="tsel"><option>3-Piece (Jacket + Waistcoat + Trouser)</option><option>2-Piece (Jacket + Trouser)</option><option>Double Breasted</option><option>Slim Fit Single Breasted</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#1a1a1a" title="Jet Black" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#3a3a3a" title="Charcoal" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#1e3a5f" title="Deep Navy" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#4a4a4a" title="Dark Grey" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">36</div><div class="sp" onclick="selSp(this)">38</div>
+              <div class="sp sel" onclick="selSp(this)">40</div><div class="sp" onclick="selSp(this)">42</div>
+              <div class="sp" onclick="selSp(this)">44</div><div class="sp" onclick="selSp(this)">46</div>
+              <div class="sp" onclick="selSp(this)">Custom</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Classic 3-Piece Suit','Suits')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUIT 2 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge nw">New Arrival</span>
+        <img src="https://images.unsplash.com/photo-1580657018950-c7f7d6a6d990?w=600&q=80&fit=crop&crop=top" alt="Navy Double Breasted Suit" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Navy Double Breasted</div><div class="psub">Corporate · Navy Collection</div>
+        <div class="sels">
+          <div><span class="sellbl">Suit Type</span>
+            <select class="tsel"><option>Double Breasted 2-Piece</option><option>Double Breasted 3-Piece</option><option>Single Breasted Slim Fit</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#1e3a6e" title="Royal Navy" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#1a2f5e" title="Deep Navy" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#2b4a7a" title="Mid Blue" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#1e2535" title="Midnight" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">36</div><div class="sp" onclick="selSp(this)">38</div>
+              <div class="sp sel" onclick="selSp(this)">40</div><div class="sp" onclick="selSp(this)">42</div>
+              <div class="sp" onclick="selSp(this)">44</div><div class="sp" onclick="selSp(this)">46</div>
+              <div class="sp" onclick="selSp(this)">Custom</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Navy Double Breasted','Suits')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUIT 3 -->
+    <div class="pcard rv">
+      <div class="pcimg">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&fit=crop&crop=top" alt="Ivory Ceremony Suit" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Ivory Ceremony</div><div class="psub">Wedding & Convocation</div>
+        <div class="sels">
+          <div><span class="sellbl">Suit Type</span>
+            <select class="tsel"><option>3-Piece Slim Fit</option><option>2-Piece Classic Fit</option><option>Tuxedo Lapel</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#f5f0e0;border:1.5px solid #d0c8b0" title="Ivory" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#e8e0cc" title="Champagne" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#d4c8b0" title="Warm Cream" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#ffffff;border:1.5px solid #c0c0c0" title="Pure White" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">36</div><div class="sp" onclick="selSp(this)">38</div>
+              <div class="sp sel" onclick="selSp(this)">40</div><div class="sp" onclick="selSp(this)">42</div>
+              <div class="sp" onclick="selSp(this)">44</div><div class="sp" onclick="selSp(this)">46</div>
+              <div class="sp" onclick="selSp(this)">Custom</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Ivory Ceremony Suit','Suits')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══ BELTS ═══ -->
+<section id="belts" class="sec" style="background:var(--off)">
+<div class="wrap">
+  <div class="cath"><div class="cathi">
+    <div>
+      <span class="slbl rv">02 — Finishing Touch</span>
+      <h2 class="stit rv">Premium Leather <em>Belts</em></h2>
+      <div class="sln rv"></div>
+      <p class="sbdy rv" style="max-width:520px">Genuine leather craftsmanship. Choose your style, colour, buckle finish, and waist size below.</p>
+    </div>
+    <a href="#contact" class="btn bob rv">Request Bulk Quote</a>
+  </div></div>
+  <div class="pgrid">
+
+    <!-- BELT 1 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge">Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80&fit=crop" alt="Brown Gold Buckle Belt" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Classic Gold Buckle</div><div class="psub">Genuine Leather · Dress Belt</div>
+        <div class="sels">
+          <div><span class="sellbl">Belt Style</span>
+            <select class="tsel"><option>Dress Belt (Formal)</option><option>Casual Leather Belt</option><option>Reversible Belt</option><option>Braided Leather Belt</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#6b3a1f" title="Tan Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#1a1a1a" title="Jet Black" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#8b4513" title="Cognac" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#2c1810" title="Dark Chocolate" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Buckle Finish</span>
+            <div class="spills">
+              <div class="sp sel" onclick="selSp(this)">Gold</div>
+              <div class="sp" onclick="selSp(this)">Silver</div>
+              <div class="sp" onclick="selSp(this)">Black</div>
+              <div class="sp" onclick="selSp(this)">Gunmetal</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Waist Size (inches)</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">28–30</div><div class="sp" onclick="selSp(this)">30–32</div>
+              <div class="sp sel" onclick="selSp(this)">32–34</div><div class="sp" onclick="selSp(this)">34–36</div>
+              <div class="sp" onclick="selSp(this)">36–38</div><div class="sp" onclick="selSp(this)">38–40</div>
+              <div class="sp" onclick="selSp(this)">40–42</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Classic Gold Buckle Belt','Belts')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELT 2 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge nw">New</span>
+        <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600&q=80&fit=crop" alt="Slim Silver Belt" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Slim Silver Edition</div><div class="psub">Genuine Leather · Executive Slim</div>
+        <div class="sels">
+          <div><span class="sellbl">Belt Style</span>
+            <select class="tsel"><option>Executive Slim (30mm)</option><option>Standard Dress (35mm)</option><option>Wide Formal (40mm)</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#1a1a1a" title="Jet Black" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#3d2b1f" title="Dark Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#6b4c3b" title="Mid Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#2c2c2c" title="Anthracite" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Buckle Finish</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">Gold</div>
+              <div class="sp sel" onclick="selSp(this)">Silver</div>
+              <div class="sp" onclick="selSp(this)">Brushed Steel</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Waist Size (inches)</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">28–30</div><div class="sp" onclick="selSp(this)">30–32</div>
+              <div class="sp sel" onclick="selSp(this)">32–34</div><div class="sp" onclick="selSp(this)">34–36</div>
+              <div class="sp" onclick="selSp(this)">36–38</div><div class="sp" onclick="selSp(this)">38–40</div>
+              <div class="sp" onclick="selSp(this)">40–42</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Slim Silver Belt','Belts')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELT 3 -->
+    <div class="pcard rv">
+      <div class="pcimg">
+        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80&fit=crop" alt="Reversible Luxe Belt" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Reversible Luxe</div><div class="psub">Genuine Leather · 2-in-1 Design</div>
+        <div class="sels">
+          <div><span class="sellbl">Combination</span>
+            <select class="tsel"><option>Reversible Black/Brown</option><option>Reversible Black/Tan</option><option>Reversible Navy/Black</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:linear-gradient(to right,#1a1a1a 50%,#6b3a1f 50%)" title="Black/Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:linear-gradient(to right,#1a1a1a 50%,#8b6914 50%)" title="Black/Tan" onclick="selSw(this)"></div>
+              <div class="sw" style="background:linear-gradient(to right,#1e3a6e 50%,#1a1a1a 50%)" title="Navy/Black" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">Buckle Finish</span>
+            <div class="spills">
+              <div class="sp sel" onclick="selSp(this)">Gold</div>
+              <div class="sp" onclick="selSp(this)">Silver</div>
+              <div class="sp" onclick="selSp(this)">Rose Gold</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Waist Size (inches)</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">28–30</div><div class="sp" onclick="selSp(this)">30–32</div>
+              <div class="sp sel" onclick="selSp(this)">32–34</div><div class="sp" onclick="selSp(this)">34–36</div>
+              <div class="sp" onclick="selSp(this)">36–38</div><div class="sp" onclick="selSp(this)">38–40</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Reversible Luxe Belt','Belts')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══ SHOES ═══ -->
+<section id="shoes" class="sec">
+<div class="wrap">
+  <div class="cath"><div class="cathi">
+    <div>
+      <span class="slbl rv">03 — Foundation Piece</span>
+      <h2 class="stit rv">Finely Crafted <em>Shoes</em></h2>
+      <div class="sln rv"></div>
+      <p class="sbdy rv" style="max-width:520px">Built for both style and comfort. Select your style, colour, and UK size directly below.</p>
+    </div>
+    <a href="#contact" class="btn bob rv">Request Bulk Quote</a>
+  </div></div>
+  <div class="pgrid">
+
+    <!-- SHOE 1 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge">Bestseller</span>
+        <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=600&q=80&fit=crop" alt="Black Oxford Shoes" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Executive Oxford</div><div class="psub">Genuine Leather · Cap Toe</div>
+        <div class="sels">
+          <div><span class="sellbl">Shoe Style</span>
+            <select class="tsel"><option>Oxford Cap Toe (Formal)</option><option>Oxford Wingtip</option><option>Derby Plain Toe</option><option>Monk Strap Single</option><option>Monk Strap Double</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#0d0d0d" title="Jet Black" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#2c1810" title="Dark Espresso" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#6b3a1f" title="Cognac Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#1e2535" title="Midnight Navy" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">UK Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">6</div><div class="sp" onclick="selSp(this)">7</div>
+              <div class="sp" onclick="selSp(this)">8</div><div class="sp sel" onclick="selSp(this)">9</div>
+              <div class="sp" onclick="selSp(this)">10</div><div class="sp" onclick="selSp(this)">11</div>
+              <div class="sp" onclick="selSp(this)">12</div><div class="sp" onclick="selSp(this)">13</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Width Fit</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">Narrow (D)</div>
+              <div class="sp sel" onclick="selSp(this)">Standard (E)</div>
+              <div class="sp" onclick="selSp(this)">Wide (EE)</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Executive Oxford Shoes','Shoes')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOE 2 -->
+    <div class="pcard rv">
+      <div class="pcimg"><span class="pbadge nw">Popular</span>
+        <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80&fit=crop" alt="Loafer Shoes" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Gentleman's Loafer</div><div class="psub">Premium Leather · Slip-On</div>
+        <div class="sels">
+          <div><span class="sellbl">Loafer Style</span>
+            <select class="tsel"><option>Horsebit Loafer (Luxury)</option><option>Penny Loafer (Classic)</option><option>Tassel Loafer (Distinguished)</option><option>Plain Bit Loafer (Minimal)</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#6b1a2a" title="Bordeaux" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#0d0d0d" title="Jet Black" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#5c3317" title="Mahogany" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#2d2d2d" title="Dark Charcoal" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">UK Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">6</div><div class="sp" onclick="selSp(this)">7</div>
+              <div class="sp" onclick="selSp(this)">8</div><div class="sp sel" onclick="selSp(this)">9</div>
+              <div class="sp" onclick="selSp(this)">10</div><div class="sp" onclick="selSp(this)">11</div>
+              <div class="sp" onclick="selSp(this)">12</div><div class="sp" onclick="selSp(this)">13</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Width Fit</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">Narrow (D)</div>
+              <div class="sp sel" onclick="selSp(this)">Standard (E)</div>
+              <div class="sp" onclick="selSp(this)">Wide (EE)</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Gentleman Loafer','Shoes')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOE 3 -->
+    <div class="pcard rv">
+      <div class="pcimg">
+        <img src="https://images.unsplash.com/photo-1582897085656-c636d006a246?w=600&q=80&fit=crop" alt="Derby Brogue Shoes" loading="lazy"/>
+      </div>
+      <div class="pbdy">
+        <div class="pnm">Classic Derby Brogue</div><div class="psub">Full-Grain Leather · Semi-Formal</div>
+        <div class="sels">
+          <div><span class="sellbl">Shoe Style</span>
+            <select class="tsel"><option>Full Brogue (Wingtip)</option><option>Semi Brogue</option><option>Plain Derby</option><option>Chukka Boot</option></select>
+          </div>
+          <div><span class="sellbl">Colour</span>
+            <div class="swatches">
+              <div class="sw sel" style="background:#c08040" title="Tan" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#8b6914" title="Honey Brown" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#6b3a1f" title="Whiskey" onclick="selSw(this)"></div>
+              <div class="sw" style="background:#0d0d0d" title="Black" onclick="selSw(this)"></div>
+            </div>
+          </div>
+          <div><span class="sellbl">UK Size</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">6</div><div class="sp" onclick="selSp(this)">7</div>
+              <div class="sp" onclick="selSp(this)">8</div><div class="sp sel" onclick="selSp(this)">9</div>
+              <div class="sp" onclick="selSp(this)">10</div><div class="sp" onclick="selSp(this)">11</div>
+              <div class="sp" onclick="selSp(this)">12</div><div class="sp" onclick="selSp(this)">13</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Width Fit</span>
+            <div class="spills">
+              <div class="sp" onclick="selSp(this)">Narrow (D)</div>
+              <div class="sp sel" onclick="selSp(this)">Standard (E)</div>
+              <div class="sp" onclick="selSp(this)">Wide (EE)</div>
+            </div>
+          </div>
+          <div><span class="sellbl">Quantity</span>
+            <div class="qty"><button class="qb" onclick="chQty(this,-1)">−</button><span class="qv">1</span><button class="qb" onclick="chQty(this,1)">+</button></div>
+          </div>
+        </div>
+        <div class="pcta">
+          <button class="abtn" onclick="addCart(this,'Classic Derby Brogue','Shoes')">Add to Selection</button>
+          <a href="https://wa.me/2349056990324" class="wbtn" target="_blank">💬</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="sec">
+  <div class="wyi">
+    <div>
+      <span class="slbl lt rv">Why Choose Us</span>
+      <h2 class="stit lt rv">Five Reasons We<br>Stand <em>Apart</em></h2>
+      <div class="sln sv rv"></div>
+      <p class="sbdy lt rv">We don't just sell clothing — we offer a complete style transformation backed by uncompromising quality and personal service that understands the African gentleman.</p>
+      <div style="margin-top:2.5rem" class="rv"><a href="#contact" class="btn bow">Get in Touch</a></div>
+    </div>
+    <div class="wif">
+      <div class="wi2 rv"><div class="win">I</div><div><div class="wit">Premium Quality</div><p class="wip">We source and trade only the finest fabrics, leathers, and materials that meet our exacting standards. No compromise, ever.</p></div></div>
+      <div class="wi2 rv"><div class="win">II</div><div><div class="wit">The Complete Look</div><p class="wip">One brand for your suit, belt, and shoes — eliminating the hassle of mixing and matching across different stores.</p></div></div>
+      <div class="wi2 rv"><div class="win">III</div><div><div class="wit">Personalized Service</div><p class="wip">Our team helps you select the right fit, style, and combination for every occasion — weddings, galas, corporate events.</p></div></div>
+      <div class="wi2 rv"><div class="win">IV</div><div><div class="wit">Trusted Brand Identity</div><p class="wip">Rooted in The Lord's Victory, we operate with integrity, transparency, and a commitment to excellence.</p></div></div>
+      <div class="wi2 rv"><div class="win">V</div><div><div class="wit">Style Meets Culture</div><p class="wip">Fashion curated with deep understanding of African body types, occasions, and aesthetic preferences.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="proc" class="sec" style="background:var(--blp)">
+  <div class="prw">
+    <div class="prh">
+      <span class="slbl rv" style="display:block;text-align:center">How It Works</span>
+      <h2 class="stit rv" style="text-align:center">Your Journey to<br><em>Sartorial Excellence</em></h2>
+    </div>
+    <div class="prst">
+      <div class="prs rv"><div class="prn">01</div><div class="prt">Reach Out</div><p class="prp">Call or WhatsApp us to discuss your needs, occasion, and preferences. We listen before we suggest.</p></div>
+      <div class="prs rv"><div class="prn">02</div><div class="prt">Browse Catalogue</div><p class="prp">Choose your suit type, colour, and size directly on this page. Add items to your selection above.</p></div>
+      <div class="prs rv"><div class="prn">03</div><div class="prt">Get Styled</div><p class="prp">Our team guides you to the perfect suit, belt, and shoe combination for your specific occasion.</p></div>
+      <div class="prs rv"><div class="prn">04</div><div class="prt">Walk in Elegance</div><p class="prp">Receive your Luxe Vista ensemble and step into every room with confidence and command.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTI -->
+<section id="testi">
+  <div class="ti">
+    <div class="tq rv" id="tq">"The Luxe Vista completely transformed how I show up to business meetings. The suit fit perfectly and the belt and shoes matched immaculately. I've never received more compliments."</div>
+    <div class="tc rv" id="tc">— Emeka O., Entrepreneur · Abuja</div>
+    <div class="tds"><div class="td on" onclick="setT(0)"></div><div class="td" onclick="setT(1)"></div><div class="td" onclick="setT(2)"></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <span class="ctag rv">Ready to Elevate Your Style?</span>
+  <h2 class="ch rv">Dress for the Life<br>You Are <em>Building.</em></h2>
+  <p class="csub rv">Call or WhatsApp us today — we're ready to dress you for success.</p>
+  <div class="cbs rv">
+    <a href="#suits" class="btn bow">Browse Catalogue</a>
+    <a href="https://wa.me/2349056990324" target="_blank" rel="noopener" class="wl">💬 WhatsApp Us Now</a>
+    <a href="tel:09056990324" class="btn" style="border:1.5px solid rgba(255,255,255,.3);color:var(--white);font-size:.68rem;letter-spacing:.18em;padding:.9rem 2.2rem">📞 Call Us</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="cgrid">
+    <div>
+      <span class="slbl rv">Get in Touch</span>
+      <h2 class="stit rv">Send Your <em>Enquiry</em></h2>
+      <div class="sln rv"></div>
+      <form id="eform" class="rv" onsubmit="handleForm(event)">
+        <div class="fr">
+          <div class="fg"><label>First Name</label><input type="text" id="fn" placeholder="James" required/></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="ln" placeholder="Adeyemi" required/></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" id="em" placeholder="james@example.com" required/></div>
+        <div class="fg"><label>WhatsApp / Phone</label><input type="tel" id="ph" placeholder="+234 800 000 0000" required/></div>
+        <div class="fg"><label>Product Interest</label>
+          <select id="pi" style="width:100%;padding:.7rem 0;border:none;border-bottom:1.5px solid var(--bdrk);color:var(--text);font-size:.86rem;cursor:none;background:transparent;appearance:none;transition:border-color .2s">
+            <option value="">Select a collection…</option>
+            <option>Elegant Suits</option><option>Premium Leather Belts</option>
+            <option>Finely Crafted Shoes</option><option>Complete Look (All Three)</option>
+            <option>Bulk / Institutional Order</option>
+          </select>
+        </div>
+        <div class="fg"><label>Occasion / Message</label><textarea id="msg" placeholder="Tell us about your occasion, sizes, or any special requests…"></textarea></div>
+        <button type="submit" class="sbtn" id="sbtn">Send Enquiry</button>
+      </form>
+    </div>
+    <div class="rv">
+      <span class="slbl">Direct Contact</span>
+      <h2 class="stit" style="margin-bottom:.5rem">We're Ready<br>to <em>Dress You.</em></h2>
+      <div class="sln"></div>
+      <div class="cd2"><div class="cicon">📞</div><div><div class="clbl">Phone</div><div class="cval"><a href="tel:09056990324">09056990324</a><br><a href="tel:+2348084916547">+234 808 491 6547</a></div></div></div>
+      <div class="cd2"><div class="cicon">💬</div><div><div class="clbl">WhatsApp</div><div class="cval"><a href="https://wa.me/2349056990324" target="_blank">Chat on WhatsApp</a></div></div></div>
+      <div class="cd2"><div class="cicon">🏷️</div><div><div class="clbl">Brand</div><div class="cval" style="color:var(--text)">TheLuxeVista<br><span style="font-size:.75rem;color:var(--textl)">Operated under The Lord's Victory</span></div></div></div>
+      <div class="cd2"><div class="cicon">📍</div><div><div class="clbl">Location</div><div class="cval" style="color:var(--text)">Akure &amp; FUTA Environs<br><span style="font-size:.75rem;color:var(--textl)">Ondo State, Nigeria · Nationwide delivery</span></div></div></div>
+      <a href="https://wa.me/2349056990324" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.7rem;margin-top:2rem;padding:1rem 1.8rem;background:rgba(37,211,102,.1);border:1.5px solid rgba(37,211,102,.35);color:#25d366;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:all .2s">
+        💬 WhatsApp Us Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg2">
+    <div>
+      <svg width="195" height="36" viewBox="0 0 195 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:.4rem">
+        <text x="0" y="29" font-family="Montserrat,sans-serif" font-weight="700" font-size="26" fill="#ffffff">T</text>
+        <text x="19" y="29" font-family="Dancing Script,cursive" font-weight="500" font-size="19" fill="#8898b0">he</text>
+        <text x="46" y="29" font-family="Montserrat,sans-serif" font-weight="700" font-size="26" fill="#ffffff">L</text>
+        <text x="63" y="29" font-family="Dancing Script,cursive" font-weight="500" font-size="19" fill="#8898b0">uxe</text>
+        <text x="98" y="29" font-family="Montserrat,sans-serif" font-weight="700" font-size="26" fill="#ffffff">V</text>
+        <text x="116" y="29" font-family="Dancing Script,cursive" font-weight="500" font-size="19" fill="#8898b0">ista</text>
+        <line x1="0" y1="33" x2="160" y2="33" stroke="#8898b0" stroke-width="1" opacity="0.18"/>
+      </svg>
+      <div class="ftag">Style in Luxury. Walk in Elegance.</div>
+      <p class="fab">Premium men's fashion curated for the modern African gentleman. Suits, belts, and shoes selected to deliver unmatched quality, style, and value. Operated under The Lord's Victory.</p>
+    </div>
+    <div class="fc"><h4>Collections</h4><ul><li><a href="#suits">Elegant Suits</a></li><li><a href="#belts">Premium Belts</a></li><li><a href="#shoes">Crafted Shoes</a></li><li><a href="#contact">Request a Quote</a></li></ul></div>
+    <div class="fc"><h4>Company</h4><ul><li><a href="#story">Our Story</a></li><li><a href="#why">Why Us</a></li><li><a href="#proc">How It Works</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4><ul><li><a href="tel:09056990324">09056990324</a></li><li><a href="tel:+2348084916547">+234 808 491 6547</a></li><li><a href="https://wa.me/2349056990324">WhatsApp</a></li><li><a href="#contact">Send Enquiry</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <p class="fcp">© 2026 <span>TheLuxeVista</span>. Operated under The Lord's Victory. All rights reserved.</p>
+    <div class="fleg"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* CURSOR */
+const cD=document.getElementById('cD'),cR=document.getElementById('cR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;cD.style.cssText='left:'+mx+'px;top:'+my+'px;';cR.style.cssText='left:'+rx+'px;top:'+ry+'px;';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.sw,.sp,.qb,.td,.ciw').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cR.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cR.classList.remove('hov'));
+});
+
+/* NAV */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50),{passive:true});
+
+/* MOBILE MENU */
+const burg=document.getElementById('burg'),mm=document.getElementById('mm');
+let mo=false;
+burg.addEventListener('click',()=>{
+  mo=!mo;mm.classList.toggle('open',mo);
+  const sp=burg.querySelectorAll('span');
+  sp[0].style.transform=mo?'rotate(45deg) translate(4px,4px)':'';
+  sp[1].style.opacity=mo?'0':'1';
+  sp[2].style.transform=mo?'rotate(-45deg) translate(4px,-4px)':'';
+});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mo=false;mm.classList.remove('open');burg.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''});}));
+
+/* REVEAL */
+const ro=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*65);ro.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* SELECTORS */
+function selSw(el){el.closest('.swatches').querySelectorAll('.sw').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');}
+function selSp(el){el.closest('.spills').querySelectorAll('.sp').forEach(p=>p.classList.remove('sel'));el.classList.add('sel');}
+function chQty(btn,d){const v=btn.closest('.qty').querySelector('.qv');let n=parseInt(v.textContent)+d;if(n<1)n=1;if(n>99)n=99;v.textContent=n;}
+
+/* CART */
+let cart=[];
+function getSel(card){
+  const sw=card.querySelector('.sw.sel'),sp=card.querySelector('.sp.sel'),qv=card.querySelector('.qv'),ts=card.querySelector('.tsel');
+  return{colour:sw?sw.getAttribute('title')||'Selected':'—',size:sp?sp.textContent:'—',qty:qv?parseInt(qv.textContent):1,type:ts?ts.value:'—'};
+}
+function addCart(btn,name,cat){
+  const card=btn.closest('.pcard'),sel=getSel(card);
+  cart.push({name,cat,...sel,id:Date.now()});
+  updateCart();openCart();showToast('Added: '+name);
+}
+function updateCart(){
+  const n=cart.length;
+  const cc=document.getElementById('cc'),cc2=document.getElementById('cc2');
+  cc.textContent=n;cc2.textContent=n;cc.classList.toggle('show',n>0);
+  const ci=document.getElementById('ci');
+  if(!n){ci.innerHTML='<div class="ce">Your selection is empty.<br>Browse our collections below.</div>';return;}
+  ci.innerHTML=cart.map(it=>'<div class="cit"><div><div class="cin">'+it.name+'</div><div class="cim">'+it.cat+' · '+it.type+'<br>Colour: '+it.colour+' · Size: '+it.size+' · Qty: '+it.qty+'</div><button class="crm" onclick="rmCart('+it.id+')">Remove</button></div></div>').join('');
+}
+function rmCart(id){cart=cart.filter(i=>i.id!==id);updateCart();}
+function openCart(){document.getElementById('co').classList.add('open');document.getElementById('cd').classList.add('open');}
+function closeCart(){document.getElementById('co').classList.remove('open');document.getElementById('cd').classList.remove('open');}
+function checkoutWA(){
+  if(!cart.length){showToast('Add items to your selection first.');return;}
+  const lines=cart.map(i=>'• '+i.name+' ('+i.cat+')\n  Type: '+i.type+'\n  Colour: '+i.colour+', Size: '+i.size+', Qty: '+i.qty).join('\n\n');
+  window.open('https://wa.me/2349056990324?text='+encodeURIComponent('Hello TheLuxeVista,\n\nI would like to order:\n\n'+lines+'\n\nPlease confirm availability and pricing.'),'_blank');
+}
+
+/* FORM */
+function handleForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('sbtn');
+  const fn=document.getElementById('fn').value.trim(),ln=document.getElementById('ln').value.trim(),em=document.getElementById('em').value.trim(),ph=document.getElementById('ph').value.trim(),pi=document.getElementById('pi').value,msg=document.getElementById('msg').value.trim();
+  if(!fn||!ln||!em||!ph){showToast('Please fill in all required fields.');return;}
+  btn.textContent='Sending…';btn.disabled=true;
+  setTimeout(()=>{
+    window.open('https://wa.me/2349056990324?text='+encodeURIComponent('Hello TheLuxeVista,\n\nName: '+fn+' '+ln+'\nEmail: '+em+'\nPhone: '+ph+'\nInterest: '+(pi||'General Enquiry')+'\n\n'+(msg||'I would like more information.')),'_blank');
+    showToast('Thank you, '+fn+'! Redirecting to WhatsApp…');
+    document.getElementById('eform').reset();
+    btn.textContent='Send Enquiry';btn.disabled=false;
+  },1200);
+}
+
+/* TOAST */
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
+
+/* TESTIMONIALS */
+const ts=[
+  {q:'"The Luxe Vista completely transformed how I show up to business meetings. The suit fit perfectly and the belt and shoes matched immaculately. I\'ve never received more compliments."',c:'— Emeka O., Entrepreneur · Abuja'},
+  {q:'"I ordered a complete look for my FUTA convocation. Every single person wanted to know where I got my outfit. TheLuxeVista is simply exceptional."',c:'— Taiwo A., Graduand · FUTA'},
+  {q:'"For my wedding I needed perfection. The Luxe Vista delivered beyond expectation — quality, fit, and style all perfectly on point."',c:'— Femi B., Groom · Akure'},
+];
+let ti=0;
+function setT(i){ti=i;document.getElementById('tq').textContent=ts[i].q;document.getElementById('tc').textContent=ts[i].c;document.querySelectorAll('.td').forEach((d,j)=>d.classList.toggle('on',j===i));}
+setInterval(()=>setT((ti+1)%3),5500);
+
+/* SMOOTH ANCHOR */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}});});
+</script>
+</body>
+</html>
